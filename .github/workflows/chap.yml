@@ -25,10 +25,12 @@ jobs:
       - name: Install dependencies for project
         run: | 
           sudo apt-get update
-          sudo apt-get install -y autoconf re2c libxml2
+          sudo apt-get install -y autoconf automake libtool re2c libxml2
 
       - name: Build repository 
-        run: ./configure && make
+        run: | 
+          ./buildconf
+          ./configure && make
       
       - name: Install Chap dependencies
         run: |
