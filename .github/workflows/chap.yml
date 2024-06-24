@@ -1,10 +1,10 @@
-name: Process Core Dumps
+name: VMware Chap Runner
 
 on:
   push:
 
 jobs:
-  run-chap:
+  run-vmwarechap:
     runs-on: ubuntu-22.04
 
     steps:
@@ -40,13 +40,12 @@ jobs:
       - name: Clone chap repository and build
         run: |
           git clone https://github.com/vmware/chap.git >> /tmp/chap
-          pushd /tmp/chap
+          cd /tmp/chap
           git submodule update --init --recursive
           mkdir build-chap
           cd build-chap
           cmake ../
           make
-          popd
       
       - name: Process core dumps with chap
         run: |
