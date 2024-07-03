@@ -1,11 +1,15 @@
-name: VMware Chap Runner
+name: Run Chap
 
 on:
   push:
 
 jobs:
   run-vmwarechap:
-    runs-on: ubuntu-22.04
+    name: '${{ matrix.os }}'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
 
     steps:
       - name: Check out repository
