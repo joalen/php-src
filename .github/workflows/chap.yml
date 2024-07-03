@@ -1,4 +1,4 @@
-name: Run Chap
+name: Run VMware Chap
 
 on:
   push:
