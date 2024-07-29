@@ -17,15 +17,11 @@ jobs:
         with:
           ref: 2bb8fbd0a864d98398598243700bf6b787a3fa05
 
-      - name: Install Bison 3.1
-        run: |
-          wget http://ftp.gnu.org/gnu/bison/bison-3.1.tar.gz
-          tar -xzvf bison-3.1.tar.gz
-          cd bison-3.1
-          ./configure
-          make
-          sudo make install
-      
+      - name: setup bison
+        uses: bison-packages/install-bison@v1
+        with:
+          version: '3.8.2'
+
       - name: Install dependencies for project
         run: | 
           sudo apt-get update
